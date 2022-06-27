@@ -15,5 +15,8 @@ def getDataset():
             if x.mechanism in ['Dto NxM', 'Dto N+M'] \
             else x.mechanism, axis=1)
     ds.drop_duplicates()
+    ds['Discount'] = 1 - ds['PN_old'] / ds['PN_new']
+    ds['month'] = ds['start_date'].dt.month
+
     return ds
 

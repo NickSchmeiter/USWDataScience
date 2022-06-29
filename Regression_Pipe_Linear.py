@@ -7,17 +7,12 @@ from sklearn.linear_model import LinearRegression
 
 from DataSet import getDataset
 
-def regression(ds):
+def regression(ds,model,grid_param):
 
 
     X = ds[['customer_lv_1', 'region_desc', 'canal_group', 'sku', 'mechanism_detailed', 'month', 'duration_consumer',
      'Discount', 'discount_so']]
-    # Features
-    #didnt work bc off wrong datatypes
-    #X=df
-    #X.drop('ROI',axis = 1)
-    #X.drop('uplift',axis = 1)
-    #X.drop('class',axis = 1)
+
     y = ds['ROI']  # Labels
 
     # One hot encode
@@ -26,15 +21,8 @@ def regression(ds):
     # train-test-split
     X_train, X_test, y_train, y_test = train_test_split(X_oneh, y, test_size=0.8, random_state=42)
 
-    #Grid Building
-    grid_param = {
-        'fit_intercept': [True, False],
-        'copy_X': [True, False],
-        'normalize': [True, False],
-        'positive': [True, False]
-    }
     #Grid Search!!!
-    gd_sr = GridSearchCV(estimator=LinearRegression(),
+    gd_sr = GridSearchCV(estimator=model,
                          param_grid=grid_param,
                          cv=5,
                          n_jobs=-1)

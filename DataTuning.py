@@ -14,7 +14,7 @@ def dropna (ds):
 
 
 def replaceWithMean(ds):
-    fillna(ds.mean())
+    ds.fillna(ds.mean())
 
 
 def showBoxplot(ds):

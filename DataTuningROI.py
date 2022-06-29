@@ -1,20 +1,23 @@
-import pandas as pd
-from matplotlib import pyplot as plt
-import seaborn as sns
 import numpy as np
 
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
 
-from DataSet import getDataset
+out = []
+def Zscore_outlier(df):
+    m = np.mean(df)
+    sd = np.std(df)
+    for i in df:
+        z = (i - m) / sd
+        if np.abs(z) > 3:
+            out.append(i)
 
-
-import scipy.stats as stats
-
-
+# takes Dataset and drops NaN
+# returns ds2
 def woNaN(ds):
     ds2 = ds.dropna(axis=0, how="any")
     return ds2
+
+# takes Dataset, drops NaN, finds outliers with Z-score and drops outliers
+# returns ds2
 def woNaNOutliers(ds):
     ds2 = ds.dropna(axis=0, how="any")
 
@@ -34,19 +37,9 @@ def woNaNOutliers(ds):
 
     return ds2
 
-
+# takes Dataset, finds outliers with Z-score, drops outliers and replaces NaN with mean
+# returns ds2
 def woOutliersMean(ds):
-
-    # outlier kill with Z-score
-    out = []
-
-    def Zscore_outlier(df):
-        m = np.mean(df)
-        sd = np.std(df)
-        for i in df:
-            z = (i - m) / sd
-            if np.abs(z) > 3:
-                out.append(i)
 
     Zscore_outlier(ds["ROI"])
 

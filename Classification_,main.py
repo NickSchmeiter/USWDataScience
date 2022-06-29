@@ -9,10 +9,10 @@ dsmodels= getmodeldf()
 
 ds = getDataset()
 
-classification(woNaN(ds),dsmodels['Model'].iloc[2]
-,dsmodels['Parameter Grid'].iloc[2])
-classification(woNaNOutliers(ds),dsmodels['Model'].iloc[2]
-,dsmodels['Parameter Grid'].iloc[2])
-classification(woOutliersMean(ds),dsmodels['Model'].iloc[2]
-,dsmodels['Parameter Grid'].iloc[2])
+classification(woNaN(ds),dsmodels['Model'].iloc[4]
+,dsmodels['Parameter Grid'].iloc[4])
+classification(woNaNOutliers(ds),dsmodels['Model'].iloc[4]
+,dsmodels['Parameter Grid'].iloc[4])
+classification(woOutliersMean(ds),dsmodels['Model'].iloc[4]
+,dsmodels['Parameter Grid'].iloc[4])
 

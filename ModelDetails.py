@@ -40,7 +40,6 @@ def getmodelrdf():
     }
     data = [[model_linear_regression, grid_param_linear_regression], [tree_model, grid_param_tree],[forest_model,grid_param_forest],[svc_regression,grid_param_svc_regression],[gradient_boost,grid_param_boost]]
     df = pd.DataFrame(data, columns=['Model', 'Parameter Grid'])
-
     return df
 #needs to be done
 

@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split, GridSearchCV
 
-from DataTuningROI import woNaN
+from Datatuning.DataTuningROI import woNaN
 
 
 def classification(ds,model,grid_param):
@@ -33,3 +33,5 @@ def classification(ds,model,grid_param):
     print('Best parameters: {}'.format(gd_sr.best_params_))
     print('Best cross-validation score: {:.2f}'.format(gd_sr.best_score_))
     print('Final Test Score with new data: {:.2f}'.format(gd_sr.score(X_test, y_test)))
+
+    return gd_sr.score(X_test, y_test)

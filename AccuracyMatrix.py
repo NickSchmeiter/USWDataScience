@@ -1,6 +1,6 @@
 
 import matplotlib.pyplot as plt
-from Regression_main import calcAccuracyDS1, calcAccuracyDS2, calcAccuracyDS3
+from Regression.Regression_main import calcAccuracyDS1, calcAccuracyDS2, calcAccuracyDS3
 
 fig, ax =plt.subplots(1,1)
 

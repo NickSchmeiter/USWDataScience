@@ -1,7 +1,7 @@
 
 import matplotlib.pyplot as plt
 from Regression.Regression_main import calcAccuracyDS1, calcAccuracyDS2, calcAccuracyDS3
-
+from Classification.Classification_main import calcAccuracycDS1,calcAccuracycDS2,calcAccuracycDS3
 fig, ax =plt.subplots(1,1)
 
 data=[['Logistic Regression',
@@ -10,10 +10,26 @@ data=[['Logistic Regression',
       ['Random Forest', calcAccuracyDS1(2), calcAccuracyDS2(2), calcAccuracyDS3(2)],
       ['Linear SVR', calcAccuracyDS1(3), calcAccuracyDS2(3), calcAccuracyDS3(3)],
       ['Gradient Boosting', calcAccuracyDS1(4), calcAccuracyDS2(4), calcAccuracyDS3(4)]]
-column_labels=[" ", "ds wo outliers", "ds wo NaN", "ds wo NaN rpl by mean"]
+column_labels=["Regression", "ds wo outliers", "ds wo NaN", "ds wo NaN rpl by mean"]
 ax.axis('tight')
 ax.axis('off')
 ax.table(cellText=data,colLabels=column_labels,loc="center")
+print("RegressionMatrix")
+plt.show()
 
+
+fig, ax =plt.subplots(1,1)
+
+data=[['Logistic Regression',
+       calcAccuracycDS1(0), calcAccuracycDS2(0), calcAccuracycDS3(0)],
+      ['Decision Tree', calcAccuracycDS1(1), calcAccuracycDS2(1), calcAccuracycDS3(1)],
+      ['Random Forest', calcAccuracycDS1(2), calcAccuracycDS2(2), calcAccuracycDS3(2)],
+      ['Linear SVR', calcAccuracycDS1(3), calcAccuracycDS2(3), calcAccuracycDS3(3)],
+      ['Gradient Boosting', calcAccuracycDS1(4), calcAccuracycDS2(4), calcAccuracycDS3(4)]]
+column_labels=["Classification", "ds wo outliers", "ds wo NaN", "ds wo NaN rpl by mean"]
+ax.axis('tight')
+ax.axis('off')
+ax.table(cellText=data,colLabels=column_labels,loc="center")
+print("ClassificationMatrix")
 plt.show()
 

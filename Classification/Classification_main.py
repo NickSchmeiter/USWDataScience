@@ -8,15 +8,17 @@ from ModelDetails import getmodelcdf
 dsmodels= getmodelcdf()
 
 ds = getDataset()
-def calcAccuracyDS1(i):
+i=1
+def calcAccuracycDS1(i):
     return classification(woNaN(ds),dsmodels['Model'].iloc[i],dsmodels['Parameter Grid'].iloc[i])
 
 
-def calcAccuracyDS1(i):
+def calcAccuracycDS2(i):
     return classification(woNaNOutliers(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i])
 
 
-def calcAccuracyDS1(i):
+def calcAccuracycDS3(i):
+    print(classification(woOutliersMean(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]))
     return classification(woOutliersMean(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i])
 
 

@@ -41,6 +41,16 @@ def woNaNOutliers(ds):
 # returns ds2
 def woOutliersMean(ds):
 
+    out = []
+    def Zscore_outlier(df):
+        m = np.mean(df)
+        sd = np.std(df)
+        for i in df:
+            z = (i - m) / sd
+            if np.abs(z) > 3:
+                out.append(i)
+
+
     Zscore_outlier(ds["ROI"])
 
     for i in out:

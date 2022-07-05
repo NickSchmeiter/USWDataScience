@@ -24,7 +24,7 @@ def getmodelrdf():
         'min_samples_split': [2, 10,20, 100],
         'max_features': ['auto', 'sqrt', 'log2'],
         'bootstrap': [True,False],
-        'n_estimators': [10,100,1000],
+        'n_estimators': [10,100,200],
         'max_depth': [10, 30, 50, 70, 90, 100]
     }
     svc_regression= LinearSVR()
@@ -36,7 +36,7 @@ def getmodelrdf():
     grid_param_boost={
         'loss': ['squared_error', 'absolute_error', 'huber', 'quantile'],
          'max_features': ['auto', 'sqrt', 'log2'],
-        'n_estimators': [10, 100, 1000],
+        'n_estimators': [10, 100, 200],
         'min_samples_split': [2, 10, 20, 50]
     }
     data = [[model_linear_regression, grid_param_linear_regression], [tree_model, grid_param_tree],[forest_model,grid_param_forest],[svc_regression,grid_param_svc_regression],[gradient_boost,grid_param_boost]]
@@ -64,7 +64,7 @@ def getmodelcdf():
         'min_samples_split': [2, 10,20, 100],
         'max_features': ['auto', 'sqrt', 'log2'],
         'bootstrap': [True,False],
-        'n_estimators': [10,100,1000],
+        'n_estimators': [10,100,200],
         'max_depth': [10, 30, 50, 70, 90, 100]
     }
     svc_classification=LinearSVC()
@@ -74,9 +74,8 @@ def getmodelcdf():
     }
     gradient_boost = GradientBoostingClassifier()
     grid_param_boost = {
-        'loss': ['squared_error', 'absolute_error', 'huber', 'quantile'],
         'max_features': ['auto', 'sqrt', 'log2'],
-        'n_estimators': [10, 100, 1000],
+        'n_estimators': [10, 100, 200],
         'min_samples_split': [2, 10, 20, 50]
     }
     data = [[model_linear_regression, grid_param_linear_regression], [tree_model, grid_param_tree],[forest_model,grid_param_forest],[svc_classification,grid_param_svc_classification],[gradient_boost,grid_param_boost]]

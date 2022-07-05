@@ -8,7 +8,7 @@ from Datatuning.DataTuningROI import woNaN
 def classification(ds,model,grid_param):
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('low_impact', '2'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('no_go', '1'))
-    ds['class'] = ds['class'].apply(lambda a: str(a).replace('top_performer', '5'))
+    ds['class'] = ds['class'].apply(lambda a: str(a).replace('top_performer','5'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('value_generator', '4'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('volume_generator', '3'))
     ds=woNaN(ds)
@@ -30,8 +30,4 @@ def classification(ds,model,grid_param):
     gd_sr.fit(X_train, y_train)
 
     # accuracy_score
-    print('Best parameters: {}'.format(gd_sr.best_params_))
-    print('Best cross-validation score: {:.2f}'.format(gd_sr.best_score_))
-    print('Final Test Score with new data: {:.2f}'.format(gd_sr.score(X_test, y_test)))
-
     return gd_sr.score(X_test, y_test)

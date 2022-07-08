@@ -10,16 +10,15 @@ dsmodels= getmodelcdf()
 ds = getDataset()
 i=1
 def calcAccuracycDS1(i):
-    return classification(woNaN(ds),dsmodels['Model'].iloc[i],dsmodels['Parameter Grid'].iloc[i])
+    return round(classification(woNaN(ds),dsmodels['Model'].iloc[i],dsmodels['Parameter Grid'].iloc[i]),4)*100
 
 
 def calcAccuracycDS2(i):
-    return classification(woNaNOutliers(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i])
+    return round(classification(woNaNOutliers(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]),4)*100
 
 
 def calcAccuracycDS3(i):
-    print(classification(woOutliersMean(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]))
-    return classification(woOutliersMean(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i])
+    return round(classification(woOutliersMean(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]),4)*100
 
 
 

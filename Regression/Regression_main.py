@@ -14,14 +14,12 @@ ds = getDataset()
 
 i=1;
 def calcAccuracyDS1(i):
-    return round(r.regression(woNaN(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]),2)
-
+    return round(r.regression(woNaN(ds),dsmodels['Model'].iloc[i],dsmodels['Parameter Grid'].iloc[i]),4)*100
 
 def calcAccuracyDS2(i):
-    return r.regression(woNaNOutliers(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i])
+    return round(r.regression(woNaN(ds),dsmodels['Model'].iloc[i],dsmodels['Parameter Grid'].iloc[i]),4)*100
 
 
 def calcAccuracyDS3(i):
-    return r.regression(woOutliersMean(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i])
-
+    return round(r.regression(woNaN(ds),dsmodels['Model'].iloc[i],dsmodels['Parameter Grid'].iloc[i]),4)*100
 

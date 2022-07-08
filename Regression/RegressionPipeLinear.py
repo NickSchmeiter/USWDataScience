@@ -25,8 +25,5 @@ def regression(ds, model, grid_param):
     gd_sr.fit(X_train, y_train)
 
     # accuracy_score
-    print('Best parameters: {}'.format(gd_sr.best_params_))
-    print('Best cross-validation score: {:.2f}'.format(gd_sr.best_score_))
-    print('Final Test Score with new data: {:.2f}'.format(gd_sr.score(X_test, y_test)))
     accuracy = gd_sr.score(X_test, y_test)
     return accuracy

@@ -7,8 +7,9 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
 def getDataset():
-    # ds = pd.read_excel(r"C:\Users\nicks\Downloads\PromoEx_HTW_anonymized_data.xlsx")
-    ds = pd.read_excel("/Users/viviennelamboy/Downloads/PromoEx_HTW_anonymized_data.xlsx")
+    #ds = pd.read_excel(r"C:\Users\nicks\Downloads\PromoEx_HTW_anonymized_data.xlsx")
+    ds = pd.read_excel(r"C:\Users\Schmeiter\Downloads\PromoEx_HTW_anonymized_data.xlsx")
+   # ds = pd.read_excel("/Users/viviennelamboy/Downloads/PromoEx_HTW_anonymized_data.xlsx")
 
     ds['mechanism_detailed'] = ds.apply(
         lambda x: x.mechanism.replace('M', str(int(x.M))).replace('N', str(int(x.N))) \
@@ -17,7 +18,5 @@ def getDataset():
     ds.drop_duplicates()
     ds['Discount'] = 1 - ds['PN_old'] / ds['PN_new']
     ds['month'] = ds['start_date'].dt.month
-
-    ds = ds.iloc[0:200]
 
     return ds

@@ -14,7 +14,7 @@ ds = getDataset()
 
 i=1;
 def calcAccuracyDS1(i):
-    return r.regression(woNaN(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i])
+    return round(r.regression(woNaN(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]),2)
 
 
 def calcAccuracyDS2(i):

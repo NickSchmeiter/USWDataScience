@@ -1,7 +1,7 @@
 from sklearn.linear_model import LinearRegression
 
 from Datatuning.DataSet import getDataset
-from Classification_Pipe_Linear import classification
+from Classification.Classification_Pipe_Linear import classification
 from Datatuning.DataTuningROI import woNaNOutliers, woOutliersMean,woNaN
 from ModelDetails import getmodelcdf
 

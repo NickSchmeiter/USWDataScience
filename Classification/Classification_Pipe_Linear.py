@@ -13,6 +13,8 @@ def classification(ds, model, grid_param):
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('top_performer','5'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('value_generator', '4'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('volume_generator', '3'))
+    ds = woNaN(ds)
+
     #choosing columns for model
     X = ds[['customer_lv_1', 'region_desc', 'canal_group', 'sku', 'mechanism_detailed', 'month', 'duration_consumer',
                'Discount', 'discount_so']]  # Features

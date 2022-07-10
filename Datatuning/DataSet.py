@@ -9,8 +9,8 @@ from sklearn.model_selection import train_test_split
 def getDataset():
     #read excel file from system
     #ds = pd.read_excel(r"C:\Users\nicks\Downloads\PromoEx_HTW_anonymized_data.xlsx")
-    #ds = pd.read_excel(r"C:\Users\Schmeiter\Downloads\PromoEx_HTW_anonymized_data.xlsx")
-    ds = pd.read_excel("/Users/viviennelamboy/Downloads/PromoEx_HTW_anonymized_data.xlsx")
+    ds = pd.read_excel(r"C:\Users\Schmeiter\Downloads\PromoEx_HTW_anonymized_data.xlsx")
+    #ds = pd.read_excel("/Users/viviennelamboy/Downloads/PromoEx_HTW_anonymized_data.xlsx")
     #ds = pd.read_excel(r"C:\Users\Test\Desktop\SM\PromoEx_HTW_anonymized_data.xlsx")
 
     #create columns
@@ -22,6 +22,6 @@ def getDataset():
     ds['Discount'] = 1 - ds['PN_old'] / ds['PN_new']
     ds['month'] = ds['start_date'].dt.month
 
-    ds = ds[0:10]
+    ds = ds[0:100]
 
     return ds

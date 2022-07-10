@@ -4,14 +4,16 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 
 from Datatuning.DataTuningROI import woNaN
 
-
+#classification method with parameters data, classifier and parameter grid
+#return accuracy
 def classification(ds, model, grid_param):
+    #creates five bins
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('low_impact', '2'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('no_go', '1'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('top_performer','5'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('value_generator', '4'))
     ds['class'] = ds['class'].apply(lambda a: str(a).replace('volume_generator', '3'))
-    ds=woNaN(ds)
+    #choosing columns for model
     X = ds[['customer_lv_1', 'region_desc', 'canal_group', 'sku', 'mechanism_detailed', 'month', 'duration_consumer',
                'Discount', 'discount_so']]  # Features
 
@@ -29,5 +31,5 @@ def classification(ds, model, grid_param):
                          n_jobs=-1)
     gd_sr.fit(X_train, y_train)
 
-    # accuracy_score
+    # return accuracy_score
     return gd_sr.score(X_test, y_test)

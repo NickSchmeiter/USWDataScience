@@ -4,6 +4,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.svm import LinearSVR, LinearSVC
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 import pandas as pd
+#method for regressor details
 def getmodelrdf():
 
     model_linear_regression=LinearRegression()
@@ -42,7 +43,7 @@ def getmodelrdf():
     data = [[model_linear_regression, grid_param_linear_regression], [tree_model, grid_param_tree], [forest_model, grid_param_forest], [svc_regression,grid_param_svc_regression], [gradient_boost, grid_param_boost]]
     df = pd.DataFrame(data, columns=['Model', 'Parameter Grid'])
     return df
-
+#method for classifier details
 def getmodelcdf():
 
     model_linear_regression=LinearRegression()

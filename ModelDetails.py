@@ -21,28 +21,27 @@ def getmodelrdf():
 }
     forest_model= RandomForestRegressor()
     grid_param_forest = {
-        'min_samples_split': [2, 10,20, 100],
+        'min_samples_split': [2, 10, 20, 100],
         'max_features': ['auto', 'sqrt', 'log2'],
-        'bootstrap': [True,False],
-        'n_estimators': [10,100,200],
+        'bootstrap': [True, False],
+        'n_estimators': [10, 100, 200],
         'max_depth': [10, 30, 50, 70, 90, 100]
     }
-    svc_regression= LinearSVR()
-    grid_param_svc_regression={
+    svc_regression = LinearSVR()
+    grid_param_svc_regression = {
         'C': [0.1, 1, 10],
-        'max_iter':[1000,10000,100000]
+        'max_iter': [1000, 10000, 100000]
     }
-    gradient_boost=GradientBoostingRegressor()
-    grid_param_boost={
+    gradient_boost = GradientBoostingRegressor()
+    grid_param_boost = {
         'loss': ['squared_error', 'absolute_error', 'huber', 'quantile'],
-         'max_features': ['auto', 'sqrt', 'log2'],
+         'max_features' : ['auto', 'sqrt', 'log2'],
         'n_estimators': [10, 100, 200],
         'min_samples_split': [2, 10, 20, 50]
     }
-    data = [[model_linear_regression, grid_param_linear_regression], [tree_model, grid_param_tree],[forest_model,grid_param_forest],[svc_regression,grid_param_svc_regression],[gradient_boost,grid_param_boost]]
+    data = [[model_linear_regression, grid_param_linear_regression], [tree_model, grid_param_tree], [forest_model, grid_param_forest], [svc_regression,grid_param_svc_regression], [gradient_boost, grid_param_boost]]
     df = pd.DataFrame(data, columns=['Model', 'Parameter Grid'])
     return df
-#needs to be done
 
 def getmodelcdf():
 

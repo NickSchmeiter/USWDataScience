@@ -1,15 +1,5 @@
 import numpy as np
 
-
-out = []
-def Zscore_outlier(df):
-    m = np.mean(df)
-    sd = np.std(df)
-    for i in df:
-        z = (i - m) / sd
-        if np.abs(z) > 3:
-            out.append(i)
-
 # takes Dataset and drops NaN
 # returns ds2
 def woNaN(ds):
@@ -63,7 +53,6 @@ def woOutliersMean(ds):
 # takes Dataset, drops NaNs, finds outliers with IQR, drops outliers and replaces NaN with mean
 # returns ds2
 # remove nans and outliers with IQR
-
 def woOutliersIQR(ds):
     ds5 = ds.dropna(axis=0, how="any")
 

@@ -11,9 +11,7 @@ def getDataset():
     ds = pd.read_excel(r"C:\Users\nicks\Downloads\PromoEx_HTW_anonymized_data.xlsx")
     #ds = pd.read_excel(r"C:\Users\Schmeiter\Downloads\PromoEx_HTW_anonymized_data.xlsx")
     #ds = pd.read_excel("/Users/viviennelamboy/Downloads/PromoEx_HTW_anonymized_data.xlsx")
-
-
-
+    #ds = pd.read_excel(r"C:\Users\Test\Desktop\SM\PromoEx_HTW_anonymized_data.xlsx")
 
     #create columns
     ds['mechanism_detailed'] = ds.apply(

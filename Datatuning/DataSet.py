@@ -22,6 +22,4 @@ def getDataset():
     ds['Discount'] = 1 - ds['PN_old'] / ds['PN_new']
     ds['month'] = ds['start_date'].dt.month
 
-    ds = ds[0:100]
-
     return ds

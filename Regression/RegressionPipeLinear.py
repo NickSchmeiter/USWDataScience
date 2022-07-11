@@ -3,12 +3,13 @@ import pandas as pd
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 
-#regression method with parameters data, classifier and parameter grid
-#return accuracy
+
+# regression method with parameters data, classifier and parameter grid
+# return accuracy
 def regression(ds, model, grid_param):
-    #extract columns
+    # extract columns
     X = ds[['customer_lv_1', 'region_desc', 'canal_group', 'sku', 'mechanism_detailed', 'month', 'duration_consumer',
-     'Discount', 'discount_so']]
+            'Discount', 'discount_so']]
 
     y = ds['ROI']  # Labels
 

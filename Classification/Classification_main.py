@@ -20,10 +20,8 @@ def calcAccuracycDS1(i):
 
 # calls classification methods for second ds and rounds
 def calcAccuracycDS2(i):
-    ds2 = round(classification(woNaNOutliers(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]),
+    return round(classification(woNaNOutliers(ds), dsmodels['Model'].iloc[i], dsmodels['Parameter Grid'].iloc[i]),
                  4) * 100
-    int(ds2)
-    return ds2
 
 
 # calls classification methods for third ds and rounds

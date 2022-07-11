@@ -6,14 +6,15 @@ import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
-def getDataset():
-    #read excel file from system
-    #ds = pd.read_excel(r"C:\Users\nicks\Downloads\PromoEx_HTW_anonymized_data.xlsx")
-    ds = pd.read_excel(r"C:\Users\Schmeiter\Downloads\PromoEx_HTW_anonymized_data.xlsx")
-    #ds = pd.read_excel("/Users/viviennelamboy/Downloads/PromoEx_HTW_anonymized_data.xlsx")
-    #ds = pd.read_excel(r"C:\Users\Test\Desktop\SM\PromoEx_HTW_anonymized_data.xlsx")
 
-    #create columns
+def getDataset():
+    # read excel file from system
+    # ds = pd.read_excel(r"C:\Users\nicks\Downloads\PromoEx_HTW_anonymized_data.xlsx")
+    ds = pd.read_excel(r"C:\Users\Schmeiter\Downloads\PromoEx_HTW_anonymized_data.xlsx")
+    # ds = pd.read_excel("/Users/viviennelamboy/Downloads/PromoEx_HTW_anonymized_data.xlsx")
+    # ds = pd.read_excel(r"C:\Users\Test\Desktop\SM\PromoEx_HTW_anonymized_data.xlsx")
+
+    # create columns
     ds['mechanism_detailed'] = ds.apply(
         lambda x: x.mechanism.replace('M', str(int(x.M))).replace('N', str(int(x.N))) \
             if x.mechanism in ['Dto NxM', 'Dto N+M'] \
